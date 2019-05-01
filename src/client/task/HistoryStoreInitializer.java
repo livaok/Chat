@@ -11,7 +11,7 @@ public class HistoryStoreInitializer implements Callable<Void> {
 
 	@Override
 	public Void call() throws Exception {
-
+		//סמחהאול םמגûי פאיכ
 		Singleton.INSTANCE.getPath().toFile().createNewFile();
 		return null;
 	}
