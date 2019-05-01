@@ -61,8 +61,14 @@ public class HistoryServiceInitializer implements Callable<Void> {
 
 		//останавливаем тредпул
 		threadPool.shutdown();
+		try {
+			threadPool.awaitTermination(30, TimeUnit.SECONDS);
+		}
+		catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 
-		//ждем три интервала по 30 секунд дл, после третьей попытки насильно останавливаем тредпул
+		//даем исполнителю 3 попытки по 30 секунд на завершение задачи
 		try {
 			int count = 1;
 			while (!threadPool.awaitTermination(30, TimeUnit.SECONDS)) {

@@ -17,7 +17,7 @@ public class History {
 	static {
 		//создаем новые экземпл€ры инициалайзеров и добавл€ем в список
 		initializers.add(new HistoryStoreInitializer());
-		//создаем новый тредпул с одним потоком
+		//создаем новый тредпул из одного потока
 		initializers.add(new HistoryServiceInitializer());
 	}
 
